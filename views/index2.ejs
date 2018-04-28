@@ -10,7 +10,15 @@
             <input class='locA-input' type='text' name='locA' placeholder='Location A'/>
         <strong>Location B:</strong>
             <input class='locB-input' type='text' name='locB' placeholder='Location B'/>
-            <input type='submit' value='send locs' />>
+            <strong>Mode of Travel: </strong>
+            <select id="mode">
+              <option value="DRIVING">Driving</option>
+              <option value="WALKING">Walking</option>
+              <option value="BICYCLING">Bicycling</option>
+              <option value="TRANSIT">Transit</option>
+              <input type='submit' value='send locs' />>
+            </select>
+            </div>
         </form>
     </div>
 
@@ -69,10 +77,12 @@
         const inputA = document.querySelector('.locA-input');
         const inputB = document.querySelector('.locB-input');
 
+        var mode = document.getElementById('mode');
+
       function initMap() {
         var map = new google.maps.Map(document.getElementById('map'), {
           zoom: 4,
-          center: {lat: 40, lng: -70}  // Australia.
+          center: {lat: 40, lng: -70}
         });
 
         var directionsService = new google.maps.DirectionsService;
@@ -92,22 +102,23 @@
         // Get the text from the input.
         const text = inputA.value;
         const textB = inputB.value;
+        const modeSelect = mode.value;
 
         directionsDisplay.addListener('directions_changed', function() {
             computeTotalDistance(directionsDisplay.getDirections());
         });
 
-        displayRoute(text.trim(), textB.trim(), directionsService, directionsDisplay);
+        displayRoute(text.trim(), textB.trim(), modeSelect.trim(), directionsService, directionsDisplay);
         };
 
       }
 
-      function displayRoute(origin, destination, service, display) {
+      function displayRoute(origin, destination, mode, service, display) {
         service.route({
           origin: origin,
           destination: destination,
           waypoints: [{location: origin}, {location: destination}],
-          travelMode: 'DRIVING',
+          travelMode: mode,
           avoidTolls: true
         }, function(response, status) {
           if (status === 'OK') {
