@@ -78,14 +78,35 @@
         const inputB = document.querySelector('.locB-input');
         var mode = document.getElementById('mode');
         var path = [];
+<<<<<<< HEAD
+        var markerCluster = new MarkerClusterer(map, markers,
+            {imagePath: "./m"});
+        var locations = [
+        {lat: 40.740309, lng: -73.973113}]
+        map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 4,
+          center: {lat: 40, lng: -70}
+=======
 
 
       function initMap() {
         var map = new google.maps.Map(document.getElementById('map'), {
           zoom: 12,
           center: {lat: 40.7, lng: -74.0}
+>>>>>>> f1ded1ab3b260767e92423185d75e6b33850008c
         });
 
+        var markers = locations.map(function(location, i) {
+          return new google.maps.Marker({
+            position: location,
+            label: labels[i % labels.length]
+          });
+        });
+
+
+
+      function initMap() {
+        
         var directionsService = new google.maps.DirectionsService;
         var directionsDisplay = new google.maps.DirectionsRenderer({
           draggable: true,
@@ -159,14 +180,16 @@
       }
        
 
-      function doStuff(results){
-        //map coords
+      function displayMarkers(results){
+      
       }
 
 
     </script>
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDZhyQj0Dg2FFBxETnK3fmpETmQ_oWyolk&callback=initMap">
+    <script src="./m/markerclusterer.js">
+    </script>
     </script>
   </body>
 </html>

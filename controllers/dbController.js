@@ -24,7 +24,7 @@ serve.get("/", function(req, res){
 });
 
 serve.get("/other", function(req, res){
-    res.render("index");
+    res.render("index2");
 });
 
   
