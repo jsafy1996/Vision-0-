@@ -16,14 +16,14 @@
               <option value="WALKING">Walking</option>
               <option value="BICYCLING">Bicycling</option>
               <option value="TRANSIT">Transit</option>
-              <input type='submit' value='send locs' />>
+              <input type='submit' value='Submit' />>
             </select>
             </div>
         </form>
     </div>
 
 
-    <title>Draggable directions</title>
+    <title>Vision[0]</title>
     <style>
       #right-panel {
         font-family: 'Roboto','sans-serif';
@@ -82,8 +82,8 @@
 
       function initMap() {
         var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 4,
-          center: {lat: 40, lng: -70}
+          zoom: 12,
+          center: {lat: 40.7, lng: -74.0}
         });
 
         var directionsService = new google.maps.DirectionsService;
