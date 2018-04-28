@@ -7,8 +7,12 @@ client = MongoClient()
 class load_db:
 
     def __init__(self):
+        #database name: CrashesDB
         self.db = client.CrashesDB
+        #collection name: crashes
         self.crashes = self.db.crashes
+
+        #populate database if not populated
         if len( self.db.collection_names() ) == 0:
             self.load_db()
 
@@ -22,11 +26,21 @@ class load_db:
         for i in data:
             self.crashes.insert(i)
 
+    #test function
+    #outputs item count and a sample object
     def test(self):
         print ("item count: ")
         print(self.crashes.count() )
-        #pprint (self.crashes.find_one() )
+        print ("item sample: ")
+        pprint (self.crashes.find_one() )
 
+    # number of accidents in borough (percent--like a pie chart)
+    def accident_count(self):
+        dummy = 0
+
+   
+
+#main function
 if __name__ == "__main__":
     obj = load_db()
 
