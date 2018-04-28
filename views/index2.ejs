@@ -10,8 +10,7 @@
             <input class='locA-input' type='text' name='locA' placeholder='Location A'/>
         <strong>Location B:</strong>
             <input class='locB-input' type='text' name='locB' placeholder='Location B'/>
-            <input type='submit' value='send locs' />
-            <div class='greeter-box'>Nothing yet...</div>
+            <input type='submit' value='send locs' />>
         </form>
     </div>
 
@@ -88,24 +87,17 @@
         // Assign the listener that responds to submit button clicks.
        form.onsubmit = (event) => {
             // This stops the page from reloading on submit.
-            event.preventDefault();
+        event.preventDefault();
  
-            // Get the text from the input.
-            const text = inputA.value;
-            const textB = inputB.value;
- 
-            // If there was text in the input...
-            if (text) {
-                // Set the content in the greeter box.
-                greeterBox.textContent = `Hello ${text.trim()}!`;
-            }
+        // Get the text from the input.
+        const text = inputA.value;
+        const textB = inputB.value;
 
-            directionsDisplay.addListener('directions_changed', function() {
-          computeTotalDistance(directionsDisplay.getDirections());
+        directionsDisplay.addListener('directions_changed', function() {
+            computeTotalDistance(directionsDisplay.getDirections());
         });
 
-        displayRoute(text.trim(), textB.trim(), directionsService,
-            directionsDisplay);
+        displayRoute(text.trim(), textB.trim(), directionsService, directionsDisplay);
         };
 
       }
