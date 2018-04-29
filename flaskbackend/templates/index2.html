@@ -178,6 +178,11 @@
         //alert("Query Done");
         // locations = results;
         //console.log(locations);
+
+        // var sound = new Audio('./transcript.mp3');
+        // sound.play();
+        new Audio('transcript.mp3').play()
+
         var markers;
         var markers = locations.map(function(location, i) {
           return new google.maps.Marker({
