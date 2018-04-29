@@ -80,6 +80,7 @@
         var path = [];
         var map;
 
+
       function initMap() {
 
         
@@ -160,21 +161,34 @@
       }
        
       function doStuff(locations){
-        // var locations = [
-        //   {lat: 40.7435636, lng: -74.035635},
-        //   {lat: 40.2, lng: -73.8}
-        // ]
-        console.log(locations);
+        //raw_data = "(40.7642, -73.96900000000001),(40.762950000000004, -73.96988),(40.76231000000001, -73.97035000000001),(40.762240000000006, -73.97017000000001),(40.7616, -73.96863),(40.75901, -73.97054),(40.757580000000004, -73.97159),(40.7565, -73.97237000000001),(40.7558, -73.97290000000001),(40.75527, -73.97329),(40.75462, -73.97373),(40.754020000000004, -73.97419000000001),(40.75276, -73.97511),(40.752, -73.97566),(40.75016, -73.97699),(40.74573, -73.98022),(40.74327, -73.98199000000001),(40.7408, -73.98382000000001),(40.740170000000006, -73.98426),(40.740100000000005, -73.98411)"
+        // var results = [
+        //   {lat: 40.75, lng: -73.967},
+        //   {lat: 40.749, lng: -73.967},
+        //   {lat: 40.748, lng: -73.967},
+        //   {lat: 40.712, lng: -73.978},
+        //   {lat: 40.71, lng: -73.978},
+        //   {lat: 40.76921, lng: -73.96535},
+        //   {lat: 40.76794, lng: -73.96625},
+        //   {lat: 40.76671, lng: -73.96717000000001},
+        //   {lat: 40.76545, lng: -73.96808},
+        //   {lat: 40.76545, lng: -73.96808}
+        // ];
+        //locations = json.loads(locations)
+        //alert("Query Done");
+        // locations = results;
+        //console.log(locations);
         var markers;
-        markers = locations.map(function(location, i) {
+        var markers = locations.map(function(location, i) {
           return new google.maps.Marker({
             position: location,
             label: "!"
           });
         });
 
+        
         // Add a marker clusterer to manage the markers.
-        var markerCluster = new MarkerClusterer(map, markers,
+        markerCluster = new MarkerClusterer(map, markers,
             {imagePath: 'https://raw.githubusercontent.com/googlemaps/js-marker-clusterer/gh-pages/images/m'}
           );
 

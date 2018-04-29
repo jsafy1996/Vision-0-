@@ -17,8 +17,8 @@ def hello():
 def doStuff(coords):
     print(coords)
     #data_processing.fix_database()
-    #data_processing.stuff(coords)
-    return coords
+    coords = data_processing.stuff(coords)
+    return jsonify(coords)
 
 if(__name__ == '__main__'):
     app.run(debug=True)
