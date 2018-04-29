@@ -164,6 +164,9 @@ p {
   .about-heading .about-heading-img {
     position: relative;
     z-index: 0;
+    margin: 0 auto;
+    display: block;
+
   }
   .about-heading .about-heading-content {
     margin-top: -5rem;
