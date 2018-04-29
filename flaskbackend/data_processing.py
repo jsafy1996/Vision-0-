@@ -10,7 +10,7 @@ db = client[database]
 
 db2 = client.Crashes2DB
 
-collection = db[collection]
+#collection = db[collection]
 collection2 = db2.crashes
 
 def stuff(raw_data):
@@ -18,10 +18,19 @@ def stuff(raw_data):
 
     processed_data = process(raw_data)
 
-
+    crashes = []
     for coords in processed_data:
-        print(list(collection.find({"NUMBER OF PERSONS INJURED": "2", "CONTRIBUTING FACTOR VEHICLE 1": "Bicycle", "LAT": coords[0], "LONG": coords[1]})))
+        crashes.append([{"lat": float(i["LATITUDE"]), "lng": float(i["LONGITUDE"])} for i in collection2.find({ "$and" : [{ "LAT": coords[0] }, {"LONG": coords[1] }] })])
+        
+    return crashes
 
+    # #for j in range(0, len(processed_data), 5):
+    # for index, coords in enumerate(processed_data):
+    #     #{"CONTRIBUTING FACTOR VEHICLE 1": "Bicycle",
+    #     if index % 5 == 0: 
+    #         for index in collection.find( {'$and': [{"LAT": coords[0], "LONG": coords[1]}]} ):
+    #             thing.append([index['LATITUDE'], index['LONGITUDE']])
+    # print(thing)
 
 def process(raw_data):
     processed_data = []
@@ -32,7 +41,8 @@ def process(raw_data):
             processed_data.append([
                 round(float(coords[:7]), 3),
                 round(float(coords[coords.find(' ') + 1: coords.find(' ') + 9]), 3)])
-
+                
+    #list(set(coordPairs))
     return processed_data
 
 #takes type float
@@ -46,5 +56,5 @@ def fix_database():
         if i['LATITUDE'] != '':
             i['LAT'] = rounder( float(i['LATITUDE']))
             i['LONG'] = rounder( float(i['LONGITUDE']))
-
+        collection2.save(i)
     print("querying done")
