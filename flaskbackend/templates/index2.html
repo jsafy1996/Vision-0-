@@ -160,18 +160,17 @@
           });
       }
        
-
       function doStuff(results){
         var locations = [
-        {lat: 40.7435636, lng: -74.035635}
+          {lat: 40.7435636, lng: -74.035635},
+          {lat: 40.2, lng: -73.8}
         ]
 
         var markers;
-        var labels = 'XZYTEFGHIJKLMNOPQRSTUVWXYZ';
         markers = locations.map(function(location, i) {
           return new google.maps.Marker({
             position: location,
-            label: labels[i % labels.length]
+            label: "!"
           });
         });
 
