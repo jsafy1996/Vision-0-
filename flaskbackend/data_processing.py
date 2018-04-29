@@ -63,5 +63,3 @@ def fix_database():
             i['LONG'] = rounder(float(i['LONGITUDE']))
         collection2.save(i)
     print("querying done")
-
-process(raw_data_2)
