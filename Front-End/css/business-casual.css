@@ -12,7 +12,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Raleway';
+  font-family: 'inherit';
 }
 
 p {
@@ -28,7 +28,7 @@ p {
   margin-bottom: 5rem;
   text-transform: uppercase;
   line-height: 1;
-  font-family: 'Raleway';
+  font-family: 'inherit';
 }
 
 .site-heading .site-heading-upper {
@@ -164,6 +164,9 @@ p {
   .about-heading .about-heading-img {
     position: relative;
     z-index: 0;
+    margin: 0 auto;
+    display: block;
+
   }
   .about-heading .about-heading-content {
     margin-top: -5rem;
