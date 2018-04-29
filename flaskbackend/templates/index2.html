@@ -78,7 +78,6 @@
         const inputB = document.querySelector('.locB-input');
         var mode = document.getElementById('mode');
         var path = [];
-<<<<<<< HEAD
         var markerCluster = new MarkerClusterer(map, markers,
             {imagePath: "./m"});
         var locations = [
@@ -86,14 +85,11 @@
         map = new google.maps.Map(document.getElementById('map'), {
           zoom: 4,
           center: {lat: 40, lng: -70}
-=======
-
 
       function initMap() {
         var map = new google.maps.Map(document.getElementById('map'), {
           zoom: 12,
           center: {lat: 40.7, lng: -74.0}
->>>>>>> f1ded1ab3b260767e92423185d75e6b33850008c
         });
 
         var markers = locations.map(function(location, i) {
