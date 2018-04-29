@@ -21,4 +21,5 @@ db = client[database]
 
 collection = db[collection]
 
-print(list(collection.find({"NUMBER OF PERSONS INJURED": "2", "CONTRIBUTING FACTOR VEHICLE 1": "Bicycle", "LATITUDE": 40.})))
+for coords in processed_data:
+    print(list(collection.find({"NUMBER OF PERSONS INJURED": "2", "CONTRIBUTING FACTOR VEHICLE 1": "Bicycle", "LATITUDE": 40.})))
