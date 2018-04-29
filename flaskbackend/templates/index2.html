@@ -81,11 +81,30 @@
 
 
       function initMap() {
+
+        var locations = [
+        {lat: 40.7435636, lng: -74.035635}
+        ]
+
         var map = new google.maps.Map(document.getElementById('map'), {
           zoom: 12,
           center: {lat: 40.7, lng: -74.0}
         });
 
+        var labels = 'XZYTEFGHIJKLMNOPQRSTUVWXYZ';
+        var markers = locations.map(function(location, i) {
+          return new google.maps.Marker({
+            position: location,
+            label: labels[i % labels.length]
+          });
+        });
+
+        
+        // Add a marker clusterer to manage the markers.
+        var markerCluster = new MarkerClusterer(map, markers,
+            {imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
+
+  
         var directionsService = new google.maps.DirectionsService;
         var directionsDisplay = new google.maps.DirectionsRenderer({
           draggable: true,
@@ -112,9 +131,8 @@
       
       };
 
-        
+    }
 
-      }
 
       function displayRoute(origin, destination, mode, service, display) {
         service.route({
@@ -160,10 +178,12 @@
        
 
       function doStuff(results){
-        //map coords
+        
       }
 
 
+    </script>
+    <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js">
     </script>
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDZhyQj0Dg2FFBxETnK3fmpETmQ_oWyolk&callback=initMap">
