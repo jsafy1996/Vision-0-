@@ -22,7 +22,9 @@
         </form>
     </div>
 
-
+    <audio>
+      <source src="/music/tune.wav">   
+   </audio>
     <title>Vision[0]</title>
     <style>
       #right-panel {
@@ -181,7 +183,7 @@
 
         // var sound = new Audio('./transcript.mp3');
         // sound.play();
-        new Audio('transcript.mp3').play()
+        new Audio('../static/transcript.mp3').play()
 
         var markers;
         var markers = locations.map(function(location, i) {
