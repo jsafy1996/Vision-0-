@@ -41,3 +41,23 @@ FIELDS TERMINATED BY ','
 ENCLOSED BY '"'
 LINES TERMINATED BY '\n'
 IGNORE 1 ROWS;
+
+CREATE TABLE IF NOT EXISTS Crashes_Staten_Island (
+    SELECT * FROM crashes WHERE BOROUGH = "Staten Island"
+);
+
+CREATE TABLE IF NOT EXISTS Crashes_Brooklyn (
+    SELECT * FROM crashes WHERE BOROUGH = "Brooklyn"
+);
+
+CREATE TABLE IF NOT EXISTS Crashes_Bronx (
+    SELECT * FROM crashes WHERE BOROUGH = "Bronx"
+);
+
+CREATE TABLE IF NOT EXISTS Crashes_Queens (
+    SELECT * FROM crashes WHERE BOROUGH = "Queens"
+);
+
+CREATE TABLE IF NOT EXISTS Crashes_Manhattan (
+    SELECT * FROM crashes WHERE BOROUGH = "Manhattan"
+);
