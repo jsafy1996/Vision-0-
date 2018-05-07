@@ -1,3 +1,6 @@
+-- This file generates CrashesDB schema
+-- Point line 41 to file location of NYPD_Motor_Vehicle_Collisions.csv
+
 CREATE DATABASE IF NOT EXISTS CrashesDB;
 
 USE CrashesDB;
@@ -7,8 +10,8 @@ CREATE TABLE IF NOT EXISTS crashes (
     TIME VARCHAR(5), 
     BOROUGH VARCHAR(13), 
     ZIP_CODE VARCHAR(5), 
-    LATITUDE VARCHAR(30),
-    LONGITUDE VARCHAR(30),
+    LATITUDE VARCHAR(6),
+    LONGITUDE VARCHAR(7),
     LOCATION VARCHAR(30), 
     ON_STREET_NAME VARCHAR(30),
     CROSS_STREET_NAME VARCHAR(30),
